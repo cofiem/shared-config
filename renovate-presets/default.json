@@ -1,0 +1,49 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "Default renovate preset for general dependency management.",
+  "extends": [
+    "config:best-practices",
+    ":prConcurrentLimit10",
+    ":automergeDisabled"
+  ],
+  "addLabels": ["dependencies"],
+  "rebaseWhen": "conflicted",
+  "minimumReleaseAge": "5 days",
+  "minimumReleaseAgeBehaviour": "timestamp-required",
+  "internalChecksFilter": "strict",
+  "prCreation": "not-pending",
+  "lockFileMaintenance": {
+    "enabled": true,
+    "groupName": "lockfiles",
+    "schedule": [
+      "every 2 weeks"
+    ]
+  },
+  "packageRules": [
+    {
+      "matchUpdateTypes": [
+        "lockFileMaintenance"
+      ],
+      "prCreation": "immediate",
+      "minimumReleaseAge": null,
+      "groupName": "lockfiles"
+    }
+  ],
+  "customManagers": [
+    {
+      "customType": "regex",
+      "description": "Update variables specifying version numbers.",
+      "managerFilePatterns": [
+        "/.*\\.ya?ml$/",
+        "/.*\\.hcl$/",
+        "/.*\\.sh$/",
+        "/.*Dockerfile$/",
+        "/.*\\.toml$/"
+      ],
+      "matchStrings": [
+        "(\/\/|#)\\s*renovate:\\s+datasource=(?<datasource>\\S+?)\\s+packageName=(?<packageName>\\S+)(?:\\s+depName=(?<depName>\\S+?))?(?:\\s+datasourceTemplate=(?<datasourceTemplate>\\S+?))?(?:\\s+versioning=(?<versioning>\\S+?))?(?:\\s+extractVersion=(?<extractVersion>\\S+?))?(?:\\s+depType=(?<depType>\\S+?))?(?:\\s+registryUrl=(?<registryUrl>\\S+?))?(?:\\s+currentDigest=(?<currentDigest>\\S+?))?\\s+[A-Za-z0-9_]*_?(version|VERSION|default)\\s*[:=]\\s*[\"']?(?<currentValue>.+?)[\"']?\\s"
+      ],
+      "versioningTemplate": "{{#if versioning}}{{{versioning}}}{{else}}semver{{/if}}"
+    }
+  ]
+}
