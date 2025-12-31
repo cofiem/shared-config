@@ -28,6 +28,19 @@
       "prCreation": "immediate",
       "minimumReleaseAge": null,
       "groupName": "lockfiles"
+    },
+    {
+      "matchDatasources": [
+        "deb"
+      ],
+      "matchPackageNames": [
+        "docker-ce",
+        "docker-ce-cli",
+        "containerd.io",
+        "docker-buildx-plugin",
+        "docker-compose-plugin"
+      ],
+      "groupName": "docker"
     }
   ],
   "customManagers": [
