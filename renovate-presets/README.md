@@ -19,7 +19,7 @@ Example:
 - [Rebase PRs when they are conflicted](https://docs.renovatebot.com/configuration-options/#rebasewhen)
 - [Wait until updates are 5 days or older](https://docs.renovatebot.com/key-concepts/minimum-release-age/)
 - [Create PRs after checks pass](https://docs.renovatebot.com/configuration-options/#prcreation)
-- [Full lock file update every 2 weeks](https://docs.renovatebot.com/configuration-options/#lockfilemaintenance)
+- [Full lock file update each weekend](https://docs.renovatebot.com/configuration-options/#lockfilemaintenance)
 - [Custom manager using formatted comment](https://docs.renovatebot.com/modules/manager/regex/)
 
 ### Custom manager using formatted comment

@@ -6,7 +6,9 @@
     ":prConcurrentLimit10",
     ":automergeDisabled"
   ],
-  "addLabels": ["dependencies"],
+  "addLabels": [
+    "dependencies"
+  ],
   "rebaseWhen": "conflicted",
   "minimumReleaseAge": "5 days",
   "minimumReleaseAgeBehaviour": "timestamp-required",
@@ -14,9 +16,8 @@
   "prCreation": "not-pending",
   "lockFileMaintenance": {
     "enabled": true,
-    "groupName": "lockfiles",
     "schedule": [
-      "every 2 weeks"
+      "* * * * 0,6"
     ]
   },
   "packageRules": [
