@@ -49,12 +49,32 @@
         "/.*\\.hcl$/",
         "/.*\\.sh$/",
         "/.*Dockerfile$/",
-        "/.*\\.toml$/"
+        "/.*\\.toml$/",
+        "/.*\\.py$/"
       ],
       "matchStrings": [
         "(\/\/|#)\\s*renovate:\\s+datasource=(?<datasource>\\S+?)\\s+packageName=(?<packageName>\\S+)(?:\\s+depName=(?<depName>\\S+?))?(?:\\s+datasourceTemplate=(?<datasourceTemplate>\\S+?))?(?:\\s+versioning=(?<versioning>\\S+?))?(?:\\s+extractVersion=(?<extractVersion>\\S+?))?(?:\\s+depType=(?<depType>\\S+?))?(?:\\s+registryUrl=(?<registryUrl>\\S+?))?(?:\\s+currentDigest=(?<currentDigest>\\S+?))?\\s+[A-Za-z0-9_]*_?(version|VERSION|default)\\s*[:=]\\s*[\"']?(?<currentValue>.+?)[\"']?\\s"
       ],
       "versioningTemplate": "{{#if versioning}}{{{versioning}}}{{else}}semver{{/if}}"
     }
-  ]
+  ],
+  "pip-compile": {
+    "managerFilePatterns": [
+      "/(^|/)[^/]*requirements\\.txt$/"
+    ],
+    "lockFileMaintenance": {
+      "enabled": true,
+      "branchTopic": "pip-compile-refresh",
+      "commitMessageAction": "Refresh pip-compile outputs",
+      "prCreation": "immediate",
+      "minimumReleaseAge": null,
+      "groupName": "lockfiles"
+    }
+  },
+  "pip_requirements": {
+    "enabled": false
+  },
+  "pip_setup": {
+    "enabled": false
+  }
 }
