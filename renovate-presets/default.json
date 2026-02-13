@@ -59,8 +59,9 @@
     }
   ],
   "pip-compile": {
+    "enabled": true,
     "managerFilePatterns": [
-      "/(^|/)[^/]*requirements\\.txt$/"
+      "/.*requirements\\.txt$/"
     ],
     "lockFileMaintenance": {
       "enabled": true,
